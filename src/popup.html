@@ -1,0 +1,58 @@
+<!--
+  MD2DOCX - Markdown to Word Converter Chrome Extension
+  Copyright (c) 2025 nkittleson
+  Licensed under the MIT License - see LICENSE file for details
+  
+  Main popup interface for the extension
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MD2DOCX Converter</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📄 MD2DOCX Converter</h1>
+            <p>Convert between Markdown and Word documents</p>
+        </div>
+        
+        <div class="content">
+            <div class="mode-toggle">
+                <div class="mode-btn active" data-mode="md-to-docx">MD → DOCX</div>
+                <div class="mode-btn" data-mode="docx-to-md">DOCX → MD</div>
+            </div>
+            
+            <div class="drop-zone" id="dropZone">
+                <div class="folder-icon">📁</div>
+                <div class="drop-text">Drop your files here</div>
+                <div class="drop-subtext">or</div>
+                <button class="select-btn" id="selectBtn">Select Files</button>
+            </div>
+            
+            <input type="file" id="fileInput" multiple accept=".md,.docx">
+            
+            <div class="file-list" id="fileList"></div>
+            
+            <div class="progress-bar" id="progressBar" style="display: none;">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+            
+            <button class="convert-btn" id="convertBtn" disabled>Convert Files</button>
+            
+            <div class="results" id="results" style="display: none;">
+                <h3>✅ Conversion Complete</h3>
+                <div id="resultsList"></div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="jszip.min.js"></script>
+    <script src="markdown-parser.js"></script>
+    <script src="docx-generator.js"></script>
+    <script src="popup.js"></script>
+</body>
+</html> 
